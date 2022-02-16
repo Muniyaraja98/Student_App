@@ -1,0 +1,37 @@
+.grid-view .table > tbody > tr > td .glyphicon
+{
+	padding:0px 7px;
+}
+
+.grid-view .table > tbody > tr > td:last-child
+{
+	min-width:110px;
+}
+
+.type-form input[type="checkbox"]
+{
+    margin: 10px 1px 10px 10px !important;
+}
+
+footer
+{
+	background: #f7f7f7 none repeat scroll 0 0;
+}
+
+.footer-content
+{
+	text-align: center;
+}
+
+.main-img
+{
+	text-align: center !important;
+}
+.notifications-index .glyphicon {
+   
+    padding: 10px;
+	display: block;
+}
+.privacy_policy{
+	padding: 12px 26px;
+}
