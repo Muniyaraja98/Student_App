@@ -15,13 +15,12 @@ Setup development
 	6. Run php init
 	7. Run composer install
 	8. Run composer update
-    9. Create an empty database
-    10. Run php yii migrate
-    
-	11. Add DB Connection
-		file path : common/config/main-local.php
-	12. Backend Url : http://localhost/yii_student/backend/web/
-		Frontend Url : http://localhost/yii_student/frontend/web/
+    9. Create an empty database   
+    10. Add DB Connection
+	   file path : common/config/main-local.php
+    11. Backend Url : http://localhost/yii_student/backend/web/
+	   Frontend Url : http://localhost/yii_student/frontend/web/
+    12. Run php yii migrate
 
 3rd-Party Extensions in vendor folder
 --------------------------------------
