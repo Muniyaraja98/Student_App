@@ -46,17 +46,27 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                             [
                                 "items" => [
                                     ['label' => 'Dashboard', 'url' => ['/site/index'], "icon" => "home"],
+                                    ['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
                                     ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
                                     ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
                                     ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
                                     ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
                                     ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
                                     ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
+                                    //['label' => 'Country', 'url' => ['/site/logout'], "icon" => "rocket", 'data-method'=> 'post'],
+                                    //Yii::$app->urlManager->createAbsoluteUrl(['site/logout'])
+                                   
                                 ]
                             ]
                         )
                     ?>
                     </div>
+                </div>
+                <div class ="sidebar-footer hidden-small">
+                <a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['site/logout'])?>" data-method="post" style="width:100%;color:#E7E7E7"><i class="glyphicon glyphicon-off"></i> Log Out</a>
+                    <!-- <a data-toggle="tooltip" data-placement="top" title="" href="login.html" data-original-title="Logout">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a> -->
                 </div>
             </div>            
         </div>
