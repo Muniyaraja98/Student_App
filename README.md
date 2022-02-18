@@ -16,11 +16,11 @@ Setup development
 	7. Run composer install
 	8. Run composer update
     9. Create an empty database
-    10. Run zcat db/yii_student.sql.gz | mysql -u {database_username} -p {database_name} 
-    11. Enter databse password when prompted.
-	12. Add DB Connection
+    10. Run php yii migrate
+    
+	11. Add DB Connection
 		file path : common/config/main-local.php
-	13. Backend Url : http://localhost/yii_student/backend/web/
+	12. Backend Url : http://localhost/yii_student/backend/web/
 		Frontend Url : http://localhost/yii_student/frontend/web/
 
 3rd-Party Extensions in vendor folder
@@ -28,6 +28,7 @@ Setup development
 
 	1. https://github.com/kartik-v/yii2-export
 	2. https://github.com/kartik-v/yii2-widget-depdrop
+	3. https://github.com/yiister/yii2-gentelella
 
 DIRECTORY STRUCTURE
 -------------------
