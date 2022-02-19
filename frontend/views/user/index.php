@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use common\models\Role;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\UserSearch */
@@ -26,12 +28,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'username',
             // 'auth_key',
             // 'password_hash',
             // 'password_reset_token',
             'email:email',
+            [
+                'attribute'=>'user_role',
+                'label'=>'Role',
+                'filter'=>(ArrayHelper::map(Role::find()->asArray()->all(), 'id', 'name')),
+                'value'=>'role.name'
+            ],  
             //'status',
             //'created_at',
             //'updated_at',

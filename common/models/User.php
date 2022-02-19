@@ -53,12 +53,20 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'email'], 'required'],
+            [['username', 'email','user_role'], 'required'],
             [['password', 'playlist_ids'], 'safe'],
             [['password'], 'required', 'on' => 'register'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
+    }
+      /**
+     * Gets query for [[role]].
+     *
+     **/
+    public function getRole()
+    {
+        return $this->hasOne(Role::className(), ['id' => 'user_role']);
     }
 
     /**

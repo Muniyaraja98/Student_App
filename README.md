@@ -7,7 +7,7 @@ Requirements
 Setup development
 -------------------
 
-	1. From /var/www/html folder Run git clone https://github.com/g-manikandan845/yii2_student_crud_operation.git
+	1. From /var/www/html folder Run git clone https://github.com/Muniyaraja98/Student_App.git
 	2. Enter git username and password when prompted
 	3. Run cd yii_student
 	4. Run git checkout master

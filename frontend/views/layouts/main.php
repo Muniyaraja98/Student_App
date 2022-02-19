@@ -41,22 +41,41 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                 <div class="clearfix"></div>
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
+                    <?php
+                        if (Yii::$app->user->identity->user_role==1) 
+                        {
+                            $menuItems=[
+                                ['label' => 'Dashboard', 'url' => ['/site/index'], "icon" => "home"],
+                                ['label' => 'Roles', 'url' => ['/role/index'], "icon" => "sitemap"],
+                                ['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
+                                ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
+                                ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
+                                ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
+                                ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
+                                ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
+                                ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
+                            ];
+                        }
+                        elseif(Yii::$app->user->identity->user_role==2)
+                        {
+                            $menuItems=[
+                                ['label' => 'Dashboard', 'url' => ['/site/index'], "icon" => "home"],
+                                //['label' => 'Roles', 'url' => ['/role/index'], "icon" => "sitemap"],
+                                //['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
+                                ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
+                                // ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
+                                // ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
+                                // ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
+                                // ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
+                                // ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
+                            ];
+                        }
+                    ?>
                     <?=
+                        
                         \yiister\gentelella\widgets\Menu::widget(
                             [
-                                "items" => [
-                                    ['label' => 'Dashboard', 'url' => ['/site/index'], "icon" => "home"],
-                                    ['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
-                                    ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
-                                    ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
-                                    ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
-                                    ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
-                                    ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
-                                    ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
-                                    //['label' => 'Country', 'url' => ['/site/logout'], "icon" => "rocket", 'data-method'=> 'post'],
-                                    //Yii::$app->urlManager->createAbsoluteUrl(['site/logout'])
-                                   
-                                ]
+                                "items" => $menuItems
                             ]
                         )
                     ?>

@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\User */
+/* @var $model common\models\Role */
 
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Roles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="user-view">
+<div class="role-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,23 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            [
-                'label'=>'Role',
-                'value'=>function($model)
-                {
-                    
-                    return $model->role->name;
-                }
-            ],
-            // 'auth_key',
-            // 'password_hash',
-            // 'password_reset_token',
-            'email:email',
-            //'status',
-            'created_at',
-            'updated_at',
-            //'verification_token',
+            'name',
         ],
     ]) ?>
 
