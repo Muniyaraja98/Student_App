@@ -12,7 +12,7 @@ use common\models\Role;
 
 <div class="user-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
     <div class="row">
         <div class="col-md-6">
             <?= $form->field($model, 'username')->textInput() ?>
@@ -29,11 +29,7 @@ use common\models\Role;
             <?= $form->field($model, 'user_role')->dropDownList(ArrayHelper::map(Role::find()->all(), 'id','name'),['prompt'=>'Select a Role']) ?>        
         </div>
     </div>
-    
-    
-    
-    
-
+    <?= $form->field($model, 'user_image')->fileInput() ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

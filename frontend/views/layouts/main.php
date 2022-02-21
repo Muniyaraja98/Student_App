@@ -35,10 +35,19 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
     <div class="main_container">
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
-                <div class="navbar nav_title" style="border: 0;">
+                <div class="navbar nav_title" style="border: 0;background: #1ABB9C;">
                     <a href="<?php echo Yii::$app->urlManager->createAbsoluteUrl(['site/index'])?>" class="site_title"><i class="fa fa-university"></i> <span>Student App</span></a>
                 </div>
                 <div class="clearfix"></div>
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="<?= Yii::$app->request->baseUrl . '/' . \Yii::$app->user->identity->user_image; ?>" style="width: 50px;height: 50px;border-radius: 50%;margin-left: 15px;margin-top: 23px;" alt="User Image"/>
+                    </div>
+                    <div class="profile_info">
+                        <p style="font-size: 16px;font-weight: 600;margin: 0 0 1px;color: #f4f4f4;"><?php echo Yii::$app->user->identity->username; ?></p>
+                        <a href="" style="color: #f4f4f4;"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
                     <?php
@@ -50,10 +59,19 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 ['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
                                 ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
                                 ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
-                                ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
-                                ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
-                                ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
-                                ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
+                                ['label' => 'Gallery', 'url' => ['/gallery/index'], "icon" => "picture-o"],
+                                [
+                                    "label" => "Nations",
+                                    "icon" => "th",
+                                    "url" => "#",
+                                    "items" =>
+                                    [
+                                        ['label' => 'Country', 'url' => ['/country/index'], "icon" => "rocket"],
+                                        ['label' => 'State', 'url' => ['/state/index'], "icon" => "wifi"],
+                                        ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
+                                        ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
+                                    ],
+                                ],
                             ];
                         }
                         elseif(Yii::$app->user->identity->user_role==2)
@@ -63,6 +81,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 //['label' => 'Roles', 'url' => ['/role/index'], "icon" => "sitemap"],
                                 //['label' => 'Users', 'url' => ['/user/index'], "icon" => "users"],
                                 ['label' => 'Student', 'url' => ['/student/index'], "icon" => "user"],
+                                ['label' => 'Gallery', 'url' => ['/gallery/index'], "icon" => "picture-o"],
                                 // ['label' => 'Class', 'url' => ['/schoolclass/index'], "icon" => "leaf"],
                                 // ['label' => 'Taluk', 'url' => ['/taluk/index'], "icon" => "send"],
                                 // ['label' => 'District', 'url' => ['/district/index'], "icon" => "signal"],
@@ -90,7 +109,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
             </div>            
         </div>
         <div class="top_nav">
-            <div class="nav_menu">
+            <div class="nav_menu" style="background: #1abb9c52;">
                 <nav class="" role="navigation">
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
@@ -99,7 +118,9 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="../uploads/students/menu.jpg" alt="">
+                                <!-- <img src="../uploads/students/menu.jpg" alt=""> -->
+                                <img src="<?= Yii::$app->request->baseUrl . '/' . \Yii::$app->user->identity->user_image; ?>" style="width: 30px;height: 30px;border-radius: 50%;" alt="User Image"/>
+                               <!-- <img src="<?php echo Yii::$app->user->identity->user_image; ?>"/> -->
                                 <?php echo Yii::$app->user->identity->username; ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>

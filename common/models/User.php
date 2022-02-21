@@ -54,6 +54,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'email','user_role'], 'required'],
+            [['user_image'],'file','extensions'=>'jpg,png,jpeg,gif'],
             [['password', 'playlist_ids'], 'safe'],
             [['password'], 'required', 'on' => 'register'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],

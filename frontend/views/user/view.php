@@ -32,6 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             [
+                'label' => 'User Image',
+                'attribute' => 'user_image',
+                'format' => 'html',
+                'value' => function($model){
+                    return yii\bootstrap\Html::img(Yii::$app->homeUrl.$model->user_image,['width'=>'50']);
+                }
+            ],
+            [
                 'label'=>'Role',
                 'value'=>function($model)
                 {

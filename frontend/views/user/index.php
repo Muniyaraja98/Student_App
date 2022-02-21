@@ -33,13 +33,22 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'auth_key',
             // 'password_hash',
             // 'password_reset_token',
+            [
+                'label' => 'User Image',
+                'attribute' => 'user_image',
+                'format' => 'html',
+                'value' => function($model){
+                    return yii\bootstrap\Html::img(Yii::$app->homeUrl.$model->user_image,['width'=>'50']);
+                }
+            ],
             'email:email',
             [
                 'attribute'=>'user_role',
                 'label'=>'Role',
                 'filter'=>(ArrayHelper::map(Role::find()->asArray()->all(), 'id', 'name')),
                 'value'=>'role.name'
-            ],  
+            ], 
+
             //'status',
             //'created_at',
             //'updated_at',

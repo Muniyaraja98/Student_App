@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-
+use yii\web\UploadedFile;
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -90,6 +90,14 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->setPassword($model->password);
             $model->generateAuthKey();
+            $model->user_image = UploadedFile::getInstance($model,'user_image');
+            //set the file name
+            $image_name = $model->username.rand(1,4000).'.'.$model->user_image->extension;
+            //set the file path in the db
+            $image_path = 'uploads/users/'.$image_name;
+            //$model->save();
+            $model->user_image->saveAs($image_path);
+            $model->user_image = $image_path;
             if($model->save())
             {
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -112,10 +120,24 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->id]);
+        // }
+        if ($model->load(Yii::$app->request->post())) 
+        {
+            $model->user_image = UploadedFile::getInstance($model,'user_image');
+            //set the file name
+            $image_name = $model->username.rand(1,4000).'.'.$model->user_image->extension;
+            //set the file path in the db
+            $image_path = 'uploads/users/'.$image_name;
+            //$model->save();
+            $model->user_image->saveAs($image_path);
+            $model->user_image = $image_path;
+            if($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);

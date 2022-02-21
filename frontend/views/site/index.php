@@ -10,7 +10,7 @@ $this->title = 'Student Application';
        <p class="lead">Welcome Back to  Student Details Maintenance</p>
     </div> -->
     <div class="main-img"> 
-        <img src="../uploads/students/home.png" style="width:50%;">
+        <img src="<?= Yii::$app->request->baseUrl . '/uploads/students/home.png'?>" style="width:50%;">
     </div>    
     <!-- <div class="body-content">
     
